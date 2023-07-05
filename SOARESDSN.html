@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoaresDSN - Designer de Flyers Esportivos</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      background-color: #333;
+      padding: 20px;
+      color: #fff;
+    }
+    
+    h1 {
+      margin: 0;
+    }
+    
+    main {
+      margin: 20px;
+    }
+    
+    .contact-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .contact-buttons a {
+      margin: 10px;
+    }
+    
+    .whatsapp-button,
+    .instagram-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+    
+    .whatsapp-button:hover,
+    .instagram-button:hover {
+      opacity: 0.8;
+    }
+    
+    .whatsapp-button {
+      background: linear-gradient(#25D366, #128C7E);
+    }
+    
+    .instagram-button {
+      background: linear-gradient(#E1306C, #833AB4);
+    }
+    
+    .whatsapp-logo,
+    .instagram-logo {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+    
+    footer {
+      background-color: #333;
+      padding: 20px;
+      color: #fff;
+      margin-top: 50px;
+    }
+    
+    /* Tema Escuro */
+    body.dark-mode {
+      background-color: #333;
+      color: #fff;
+    }
+    
+    header.dark-mode {
+      background-color: #000;
+    }
+    
+    main.dark-mode {
+      background-color: #222;
+    }
+    
+    footer.dark-mode {
+      background-color: #000;
+    }
+    
+    /* Tema Claro */
+    body.light-mode {
+      background-color: #f2f2f2;
+      color: #333;
+    }
+    
+    header.light-mode {
+      background-color: #333;
+    }
+    
+    main.light-mode {
+      background-color: #fff;
+    }
+    
+    footer.light-mode {
+      background-color: #333;
+    }
+    
+    /* Boas-vindas flutuante */
+    .welcome-container {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      border: 1px solid #fff;
+      opacity: 0;
+      animation: fadeIn 0.5s ease forwards;
+    }
+    
+    .welcome-container h2,
+    .welcome-container p {
+      margin: 0;
+    }
+    
+    .welcome-container button {
+      background-color: #fff;
+      color: #333;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 10px;
+      }
+      
+      h1 {
+        font-size: 24px;
+      }
+      
+      main {
+        margin: 10px;
+      }
+      
+      .contact-buttons {
+        flex-direction: column;
+      }
+      
+      .contact-buttons a {
+        margin: 5px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .theme-selector {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+      }
+      
+      .theme-selector select {
+        width: 150px;
+      }
+    }
+  </style>
+  <script>
+    function showWelcomeMessage() {
+      var welcomeContainer = document.querySelector('.welcome-container');
+      welcomeContainer.style.display = 'block';
+    }
+    
+    function hideWelcomeMessage() {
+      var welcomeContainer = document.querySelector('.welcome-container');
+      welcomeContainer.style.display = 'none';
+    }
+    
+    function toggleTheme() {
+      var body = document.querySelector('body');
+      var header = document.querySelector('header');
+      var main = document.querySelector('main');
+      var footer = document.querySelector('footer');
+      
+      if (event.target.value === 'dark') {
+        body.classList.add('dark-mode');
+        header.classList.add('dark-mode');
+        main.classList.add('dark-mode');
+        footer.classList.add('dark-mode');
+        
+        body.classList.remove('light-mode');
+        header.classList.remove('light-mode');
+        main.classList.remove('light-mode');
+        footer.classList.remove('light-mode');
+      } else if (event.target.value === 'light') {
+        body.classList.add('light-mode');
+        header.classList.add('light-mode');
+        main.classList.add('light-mode');
+        footer.classList.add('light-mode');
+        
+        body.classList.remove('dark-mode');
+        header.classList.remove('dark-mode');
+        main.classList.remove('dark-mode');
+        footer.classList.remove('dark-mode');
+      }
+    }
+  </script>
+</head>
+<body onload="showWelcomeMessage()">
+  <div class="welcome-container">
+    <h2>🏆 Bem-vindo ao mundo das Artes Esportivas de Futebol!</h2>
+    <p>
+</p>
+    <button onclick="hideWelcomeMessage()">Fechar</button>
+  </div>
+  
+  <header>
+    <h1>SoaresDSN - Designer de Flyers Esportivos</h1>
+  </header>
+  
+  <div class="theme-selector">
+    <select onchange="toggleTheme()">
+      <option value="dark">Tema Escuro</option>
+      <option value="light">Tema Claro</option>
+    </select>
+  </div>
+  
+  <main>
+    <h2>Apresentação do trabalho</h2>
+    <p>Bem-vindo ao site do SoaresDSN, um designer especializado em flyers esportivos. Com uma paixão pelo design e pelos esportes, estou aqui para ajudar a criar flyers atrativos e impactantes para promover eventos esportivos.</p>
+    
+    <h2>Informações de Contato</h2>
+    <p>Entre em contato para obter mais informações ou solicitar um orçamento.</p>
+    
+    <div class="contact-buttons">
+      <a href="https://api.whatsapp.com/send/?phone=5583998400965&text&type=phone_number&app_absent=0" class="whatsapp-button">
+        <img src="https://logopng.com.br/logos/whatsapp-33.png" alt="WhatsApp Logo" class="whatsapp-logo">
+        Contato no WhatsApp
+      </a>
+      <a href="https://www.instagram.com/soaresdsn/" class="instagram-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" alt="Instagram Logo" class="instagram-logo">
+        Siga no Instagram
+      </a>
+    </div>
+  </main>
+  
+  <footer>
+    <p>© 2023 SoaresDSN. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
